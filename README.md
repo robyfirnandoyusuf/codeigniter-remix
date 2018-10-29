@@ -16,9 +16,9 @@ Tested on PHP 5.6 Ubuntu 16.04 LTS
 ```
 php -v
 ```
-- if you're using linux , open terminal to `application/cache`
+- if you're using linux , open terminal go to `application/cache` and `assets/`
 ```
-sudo chmod -R 777 views
+sudo chmod -R 777 views and sudo chmod -R 777 uploads
 ```
 - Import database in folder `database` 
 
