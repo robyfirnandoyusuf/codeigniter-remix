@@ -16,6 +16,10 @@ Tested on PHP 5.6 Ubuntu 16.04 LTS
 ```
 php -v
 ```
+- if you're using linux , open terminal to `application/cache`
+```
+sudo chmod -R 777 views
+```
 
 ### Configuration
  - Edit .env file on `application/.env`
