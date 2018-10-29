@@ -181,7 +181,9 @@ class Kejora extends CI_Controller {
                 $this->dbforge->add_key('id', TRUE);
                 $this->dbforge->add_field($fields);
                 $this->dbforge->create_table('ads',TRUE);
-            mkdir(FCPATH.'assets/uploads/ads', 0777, true);
+                $oldmask = umask(0);
+                mkdir(FCPATH.'assets/uploads/ads', 0777, true);
+                umask($oldmask);
             if (!file_exists(controller_path."Ads.php") && model_path."Adsmodel.php") {
                //create controller
                 $this->fileLoader(controller_path."Ads.php","https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CRUD-CI-Remix/master/controllers/Ads.php");
