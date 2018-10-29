@@ -20,6 +20,7 @@ php -v
 ```
 sudo chmod -R 777 views
 ```
+- Import database in folder `database` 
 
 ### Configuration
  - Edit .env file on `application/.env`
