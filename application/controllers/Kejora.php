@@ -198,7 +198,7 @@ class Kejora extends CI_Controller {
                 mkdir(view_path.'ads', 0777, true);
                 $this->fileLoader(view_path."ads/index.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CRUD-CI-Remix/master/ads/index.php");
                 $this->fileLoader(view_path."ads/add.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CRUD-CI-Remix/master/ads/add.php");
-                $this->fileLoader( view_path."ads/update.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CRUD-CI-Remix/master/ads/edit.php");
+                $this->fileLoader( view_path."ads/edit.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CRUD-CI-Remix/master/ads/edit.php");
             }
            
     }
