@@ -87,7 +87,7 @@ class Kejora extends CI_Controller {
                     $this->create_app($name);
                     break;
                 case 'crud':
-                    $this->create_crud_upload($name);
+                    $this->create_crud($name);
                     break;
                 case 'controller':
                     $this->create_controller($name);
@@ -130,7 +130,7 @@ class Kejora extends CI_Controller {
     }
 
 
-    public function create_crud_upload()
+    public function create_crud()
     {
             $host = getenv('DB_HOST');
             $user = getenv('DB_USERNAME');
