@@ -16,6 +16,11 @@ Tested on PHP 5.6 Ubuntu 16.04 LTS
 ```
 php -v
 ```
+- if you're using linux , open terminal to `application/cache`
+```
+sudo chmod -R 777 views
+```
+- Import database in folder `database` 
 
 ### Configuration
  - Edit .env file on `application/.env`
@@ -30,7 +35,7 @@ DB_DRIVER 	= "mysqli" // mysqli or mysql or etc
 ### Using Console
 go to root project > open terminal
 
-![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/Screenshot_2018-10-28_17-29-40.png)
+![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/Screenshot_2018-10-29_08-22-15.png)
 ```
 php index.php kejora help
 ```
