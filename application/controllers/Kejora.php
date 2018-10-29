@@ -81,7 +81,6 @@ class Kejora extends CI_Controller {
                 echo  $this->_ret.'You didn\'t provide a name for '.$what;
                 return FALSE;
             }
-
             switch($what)
             {
                 case 'app':
@@ -131,10 +130,8 @@ class Kejora extends CI_Controller {
     }
 
 
-    public function create_crud_upload($app = NULL)
+    public function create_crud_upload()
     {
-        if(isset($app))
-        {
             $host = getenv('DB_HOST');
             $user = getenv('DB_USERNAME');
             $pass = getenv('DB_PASSWORD');
@@ -201,12 +198,6 @@ class Kejora extends CI_Controller {
                 $this->fileLoader( view_path."ads/update.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CRUD-CI-Remix/master/ads/edit.php");
             }
            
-
-        }
-        else
-        {
-            echo $this->_ret.'You need to provide a name for the app';
-        }
     }
 
     public function create_controller()
