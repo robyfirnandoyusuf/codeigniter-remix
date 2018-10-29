@@ -1,0 +1,74 @@
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+class {{CONTROLLER}} extends {{C_EXTENDS}}_Controller
+{
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('{{MV}}model','model');
+	}
+	
+	public function index()
+	{
+  		${{MV}} = {{MV}}model::all();
+	    $data['{{MV}}']    = ${{MV}};
+	    $this->blade->view('{{MV}}/index', $data);
+	}
+		
+	public function add()
+	{
+		$this->form_validation->set_rules('element', 'Element Label', 'trim|required|xss_clean');
+
+		if ( $this->form_validation->run() == true){
+
+			$this->model->insert();
+            $this->session->set_flashdata('success_message', "Add {{CONTROLLER}} success");
+            redirect("{{CONTROLLER}}", 'refresh');
+
+		}else{
+			$data['message'] 	= (validation_errors() ? validation_errors() : $this->session->flashdata('message'));
+			$data['title']		= 'Add {{CONTROLLER}}';
+			$data['styles'] 	= '';
+			$data['scripts']	= '';
+			
+			$this->blade->view('{{MV}}/add', $data);
+		}
+	}
+	
+	public function edit()
+	{
+		$this->form_validation->set_rules('nama', 'Name', 'trim|required');
+
+		if ( $this->form_validation->run() == true){
+
+			$this->model->update($id);
+            $this->session->set_flashdata('success_message', "Edit {{MV}} success");
+           	redirect("{{CONTROLLER}}", 'refresh');
+
+		}else{
+			$data['message'] 	= (validation_errors() ? validation_errors() : $this->session->flashdata('message'));
+			$data['styles'] 	= '';
+			$data['scripts']	= '';
+			${{MV}} 			= $this->model->get_by_id($id);
+			$data['{{MV}}'] 	= ${{MV}}[0];
+			$data['title']		= 'Edit {{MV}}';
+
+			$this->blade->view("{{MV}}/update");
+		}
+	}
+	public function delete($id)
+	{
+		$id = intval($id);
+		if($id!=0)
+		{
+			$data['content'] = $this->{{MV}}model->delete();
+			$this->blade->view('{{MV}}/index', $data);
+		}
+		else
+		{
+			redirect(site_url(),'refresh');
+		}
+	}
+}
+/* End of file '{{CONTROLLER_FILE}}' */
+/* Location: ./application/controllers/{{CONTROLLER_FILE}} */

@@ -1,0 +1,11 @@
+<?php
+
+if (!defined('BASEPATH')) exit('No direct script access allowed');
+
+use \Illuminate\Database\Eloquent\Model as Eloquent;
+
+class {{MODEL}} extends Eloquent {
+    protected $table = "users";
+}
+/* End of file '{{MODEL_FILE}}' */
+/* Location: ./application/models/{{MODEL_FILE}} */
