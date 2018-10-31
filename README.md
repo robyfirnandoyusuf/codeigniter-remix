@@ -3,11 +3,9 @@
 :smiley:
 Codeigniter rasa laravel
 
-Tested 
-- PHP 5.6 
-- PHP 7 
-- Ubuntu 16.04 LTS
-- Windows 7
+### Tested on :  
+- PHP 5.6 & PHP 7
+- Ubuntu 16.04 LTS & Windows 7
 
 ### Requirement 
 - PHP 5.6 >= greater
