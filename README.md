@@ -44,7 +44,7 @@ go to root project > open terminal
 php index.php kejora help
 ```
 
-(Windows)
+(Windows)<br>
 ![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/SS%20windows%20-%20test.jpeg)
 ```
 php 'YOUR FULLPATH TO PROJECT' index.php kejora help
