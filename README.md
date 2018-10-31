@@ -57,7 +57,7 @@ php 'YOUR FULLPATH TO PROJECT' index.php kejora help
 - Blade Template Engine
 - Generate MVC and CRUD + upload
 
-Thanx to : 
+### Thanx to : 
 - Avenir
 - Muhammad Noval Nur Auliya' 
 
