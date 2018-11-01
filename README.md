@@ -35,8 +35,8 @@ DB_DRIVER 	= "mysqli" // mysqli or mysql or etc
 
 ```
 ### Using Console
-go to root project > open terminal<br>
-(Linux)
+go to root project > open terminal
+(Linux)<br>
 ![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/Screenshot_2018-10-29_08-22-15.png)
 ```
 php index.php kejora help
