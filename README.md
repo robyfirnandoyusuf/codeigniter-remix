@@ -39,15 +39,15 @@ DB_DRIVER 	= "mysqli" // mysqli or mysql or etc
 (Linux)<br>
 ![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/Screenshot_2018-10-29_08-22-15.png)
 ```
-go to root project > open terminal
-php index.php kejora help
+- go to root project > open terminal
+- php index.php kejora help
 ```
 
 (Windows)<br>
 ![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/SS%20windows%20-%20test.jpeg)
 ```
-go to `php` directory of your localhost > open terminal 
-php 'YOUR FULLPATH TO PROJECT' index.php kejora help
+- go to `php` directory of your localhost > open terminal 
+- php 'YOUR FULLPATH TO PROJECT' index.php kejora help
 ```
 
 ### Features
