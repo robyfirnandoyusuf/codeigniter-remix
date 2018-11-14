@@ -11,6 +11,13 @@ Codeigniter rasa laravel
 - PHP 5.6 >= greater
 - PHP CLI
 
+### Features
+- Eloquent 
+- Pretty var_dump `dd()`
+- .env config
+- Blade Template Engine
+- Generate MVC and CRUD + upload
+
 ### Installation
 
  - Clone this repository
@@ -49,13 +56,6 @@ DB_DRIVER 	= "mysqli" // mysqli or mysql or etc
 - go to `php` directory of your localhost > open terminal 
 - php 'YOUR FULLPATH TO PROJECT' index.php kejora help
 ```
-
-### Features
-- Eloquent 
-- Pretty var_dump `dd()`
-- .env config
-- Blade Template Engine
-- Generate MVC and CRUD + upload
 
 ### Thanx to : 
 - Avenir
