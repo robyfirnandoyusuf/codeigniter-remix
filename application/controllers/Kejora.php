@@ -27,6 +27,8 @@ class Kejora extends CI_Controller {
         define("controller_path",APPPATH.'controllers/');
         define("model_path", APPPATH.'models/');
         define("view_path", APPPATH.'views/');
+        define("assets_path", FCPATH.'assets/');
+
         
         $this->config->load('kejora',TRUE);
         $this->_templateLoc = APPPATH.$this->config->item('templates', 'kejora');
@@ -38,6 +40,9 @@ class Kejora extends CI_Controller {
  |  __/|  _  |  __/  | . \| |__| |_| | |_| |  _ <  / ___ \ 
  |_|   |_| |_|_|     |_|\_\_____\___/ \___/|_| \_\/_/   \_\ 
   		-Kelompok Jones Berkarya- {$this->_ret2} \033[37m";
+        echo "\033[0;32mPHP Version : ".phpversion()."\n";
+        echo "\033[0;32m CI Version  : ".CI_VERSION."\n\033[37m";
+
     }
 
     public function _remap($method, $params=array())
@@ -72,11 +77,11 @@ class Kejora extends CI_Controller {
     {
         $what = filter_var($what, FILTER_SANITIZE_STRING);
         $name = filter_var($name, FILTER_SANITIZE_STRING);
-        $can_create = array('app','controller','crud','model','view','migration');
+        $can_create = array('app','controller','crud','auth','dashboard','model','view','migration');
 
         if(in_array($what, $can_create))
         {
-            if(empty($name) && $what != "crud")
+            if(empty($name) && $what != "crud" && $what != "auth" && $what != "dashboard")
             {
                 echo  $this->_ret.'You didn\'t provide a name for '.$what;
                 return FALSE;
@@ -89,6 +94,12 @@ class Kejora extends CI_Controller {
                 case 'crud':
                     $this->create_crud($name);
                     break;
+                case 'auth':
+                    $this->create_auth($name);
+                    break;
+                case 'dashboard':
+                    $this->create_dashboard($name);
+                    break;
                 case 'controller':
                     $this->create_controller($name);
                     break;
@@ -99,7 +110,6 @@ class Kejora extends CI_Controller {
                     $this->create_view($name);
                     break;
             }
-
         }
         else
         {
@@ -201,6 +211,138 @@ class Kejora extends CI_Controller {
                 $this->fileLoader( view_path."ads/edit.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CRUD-CI-Remix/master/ads/edit.php");
             }
            
+    }
+
+
+    public function create_auth($app = NULL)
+    {
+
+        /////////////////////////////////////////
+        ///// BEGIN Proc Controller & Model /////
+        ////////////////////////////////////////
+            if (!file_exists(controller_path."/Auth.php") && model_path."Authmodel.php") {
+               //create controller
+                $this->fileLoader(controller_path."Auth.php","https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Auth/master/controllers/Auth.php");
+
+                //create model
+                $this->fileLoader(model_path."Authmodel.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Auth/master/models/Authmodel.php");
+            }
+        /////////////////////////////////////////
+        ///// END Proc Controller & Model ///////
+        ////////////////////////////////////////
+
+
+        /////////////////////////////
+        ///// BEGIN Proc Views /////
+        ////////////////////////////
+        if (!is_dir(view_path.'auth')) {
+            mkdir(view_path.'auth', 0777, true);
+        }
+
+            $this->fileLoader(view_path."auth/index.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Auth/master/views/auth/index.php");
+
+        if (!is_dir(view_path.'template-auth')) {
+            mkdir(view_path.'template-auth', 0777, true);
+        }
+
+            $this->fileLoader(view_path."template-auth/header.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Auth/master/views/template-auth/header.php");
+            $this->fileLoader(view_path."template-auth/footer.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Auth/master/views/template-auth/footer.php");
+        /////////////////////////////
+        ///// BEGIN Proc Views /////
+        ////////////////////////////
+
+
+        //////////////////////////////////
+        ///// BEGIN Proc Auth Assets /////
+        /////////////////////////////////
+        if (!is_dir(assets_path.'auth')) {
+            mkdir(assets_path.'auth', 0777, true);
+        }
+
+
+        if (is_file(assets_path."auth-assets.zip") == false) {
+            $this->loadZipGitHub(assets_path."auth-assets.zip", "http://kryptonraven.com/cdn/ci-remix/auth-assets.zip");
+        }
+
+        $zip = new ZipArchive;
+        $res = $zip->open(assets_path.'auth-assets.zip');
+        if ($res === TRUE) {
+          $zip->extractTo(assets_path.'');
+          $zip->close();
+          unlink(assets_path."auth-assets.zip");
+        } else {
+          echo 'Something Error';
+        }
+
+        //////////////////////////////////
+        ///// END Proc Auth Assets /////
+        /////////////////////////////////
+        $this->create_dashboard();
+
+    }
+
+    public function create_dashboard($app = null)
+    {
+        /////////////////////////////////////////
+        ///// BEGIN Proc Controller & Model /////
+        ////////////////////////////////////////
+
+        if (!is_dir("Admin")) {
+            mkdir(controller_path.'Admin', 0777, true);
+        }
+            if (!file_exists(controller_path."Admin/Dashboard.php")) {
+               //create controller
+                $this->fileLoader(controller_path."Admin/Dashboard.php","https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Dashboard-/master/controllers/Admin/Dashboard.php");
+
+                $this->fileLoader(controller_path."Admin/Users.php","https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Dashboard-/master/controllers/Admin/Users.php");
+            }
+        /////////////////////////////////////////
+        ///// END Proc Controller & Model ///////
+        ////////////////////////////////////////
+
+
+        /////////////////////////////
+        ///// BEGIN Proc Views /////
+        ////////////////////////////
+        if (!is_dir(view_path.'admin')) {
+            mkdir(view_path.'admin', 0777, true);
+        }
+
+            $this->fileLoader(view_path."admin/dashboard.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Dashboard-/master/views/admin/dashboard.php");
+            $this->fileLoader(view_path."admin/users.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Dashboard-/master/views/admin/users.php");
+
+        if (!is_dir(view_path.'template-backend')) {
+            mkdir(view_path.'template-backend', 0777, true);
+        }
+
+            $this->fileLoader(view_path."template-backend/header-dashboard.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Dashboard-/master/views/template-backend/header-dashboard.php");
+            $this->fileLoader(view_path."template-backend/footer-dashboard.php", "https://raw.githubusercontent.com/robyfirnandoyusuf/Starter-CI-Remix-Dashboard-/master/views/template-backend/footer-dashboard.php");
+        /////////////////////////////
+        ///// BEGIN Proc Views /////
+        ////////////////////////////
+
+
+        //////////////////////////////////
+        ///// BEGIN Proc Auth Assets /////
+        /////////////////////////////////
+
+        if (is_file(assets_path."dashboard-assets.zip") == false) {
+            $this->loadZipGitHub(assets_path."dashboard-assets.zip", "http://kryptonraven.com/cdn/ci-remix/dashboard-assets.zip");
+        }
+
+        $zip = new ZipArchive;
+        $res = $zip->open(assets_path.'dashboard-assets.zip');
+        if ($res === TRUE) {
+          $zip->extractTo(assets_path.'backend/');
+          $zip->close();
+          unlink(assets_path."dashboard-assets.zip");
+        } else {
+          echo '<font color="red">Something Error</font>';
+        }
+
+        //////////////////////////////////
+        ///// END Proc Auth Assets /////
+        /////////////////////////////////
     }
 
     public function create_controller()
@@ -372,6 +514,18 @@ class Kejora extends CI_Controller {
         return $create;
     }
 
+    private function loadZipGitHub($nameDest = '',$src = ''){
+        $ch = curl_init();
+        $source = $src; // THE FILE URL
+        curl_setopt($ch, CURLOPT_URL, $source);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $data = curl_exec ($ch);
+        $destination = $nameDest;// NEW FILE LOCATION
+        $file = fopen($destination, "w+");
+        fputs($file, $data);
+        fclose($file);
+    }
+
     private function _names($str)
     {
         $str = strtolower($str);
@@ -467,7 +621,7 @@ class Kejora extends CI_Controller {
     }
 
     //////////////////////////////////
-    ////  begin local funcs pack  ///
+    ////  end local funcs pack  ///
     ////////////////////////////////
 
 
