@@ -3,11 +3,20 @@
 :smiley:
 Codeigniter rasa laravel
 
-Tested on PHP 5.6 Ubuntu 16.04 LTS
+### Tested on :  
+- PHP 5.6 & PHP 7
+- Ubuntu 16.04 LTS & Windows 7
 
 ### Requirement 
 - PHP 5.6 >= greater
 - PHP CLI
+
+### Features
+- Eloquent 
+- Pretty var_dump `dd()`
+- .env config
+- Blade Template Engine
+- Generate MVC and CRUD + upload
 
 ### Installation
 
@@ -33,20 +42,24 @@ DB_DRIVER 	= "mysqli" // mysqli or mysql or etc
 
 ```
 ### Using Console
-go to root project > open terminal
 
+(Linux)<br>
 ![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/Screenshot_2018-10-29_08-22-15.png)
 ```
-php index.php kejora help
+- go to root project > open terminal
+- php index.php kejora help
 ```
 
-### Features
-- Eloquent 
-- Pretty var_dump `dd()`
-- .env config
-- Blade Template Engine
-- Generate MVC and CRUD + upload
+(Windows)<br>
+![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/SS%20windows%20-%20test.jpeg)
+```
+- go to `php` directory of your localhost > open terminal 
+- php 'YOUR FULLPATH TO PROJECT' index.php kejora help
+```
 
+### Thanx to : 
+- Avenir
+- Muhammad Noval Nur Auliya' 
 
 :grin: happy c0ding<br />
 Remixed By Nando : [@NothingtoCoding - Roby Firnando Yusuf](mailto:nothingtocoding@gmail.com)
