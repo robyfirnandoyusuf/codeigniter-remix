@@ -44,7 +44,7 @@ DB_DRIVER 	= "mysqli" // mysqli or mysql or etc
 
 ### RUN 
 
-## Linux 
+#### Linux 
 ```
 php -S localhost:8000 index.php
 ```
