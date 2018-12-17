@@ -41,6 +41,14 @@ DB_NAME 	= "db"
 DB_DRIVER 	= "mysqli" // mysqli or mysql or etc
 
 ```
+
+### RUN 
+
+## Linux 
+```
+php -S localhost:8000 index.php
+```
+
 ### Using Console
 
 (Linux)<br>
