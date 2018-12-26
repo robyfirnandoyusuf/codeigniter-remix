@@ -59,7 +59,7 @@ php -S localhost:8000 index.php
 ```
 
 (Windows)<br>
-> Screenshoot soon upload
+> Screenshoot will be uploaded soon
 ```
 - go to `php` directory of your localhost > open terminal 
 - php 'YOUR FULLPATH TO PROJECT' index.php cow help
