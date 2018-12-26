@@ -5,7 +5,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kejora extends CI_Controller {
+class Cow extends CI_Controller {
     private $_c_extends;
     private $_mo_extends;
     private $_mi_extends;
@@ -30,18 +30,34 @@ class Kejora extends CI_Controller {
         define("assets_path", FCPATH.'assets/');
 
         
-        $this->config->load('kejora',TRUE);
-        $this->_templateLoc = APPPATH.$this->config->item('templates', 'kejora');
-        $this->_c_extends = $this->config->item('c_extends', 'kejora');
-        $this->_mo_extends = $this->config->item('model_extends', 'kejora');
-        echo "\033[33m  ____  _   _ ____    _  _______    _  ___  ____      _    
- |  _ \| | | |  _ \  | |/ / ____|  | |/ _ \|  _ \    / \   
- | |_) | |_| | |_) | | ' /|  _| _  | | | | | |_) |  / _ \  
- |  __/|  _  |  __/  | . \| |__| |_| | |_| |  _ <  / ___ \ 
- |_|   |_| |_|_|     |_|\_\_____\___/ \___/|_| \_\/_/   \_\ 
-  		-Kelompok Jones Berkarya- {$this->_ret2} \033[37m";
+        $this->config->load('cow',TRUE);
+        $this->_templateLoc = APPPATH.$this->config->item('templates', 'cow');
+        $this->_c_extends = $this->config->item('c_extends', 'cow');
+        $this->_mo_extends = $this->config->item('model_extends', 'cow');
+        echo "
+             _ (.\".) _
+            '-'/. .\'-'
+              /_   _\     _...._
+             (` o o `)---`      '.
+       m0oow  /\"---\"`             \
+              |            /     ;|
+              |           |      ||
+               \\   \  \  \     /\\
+                \`;-'| |-.-'-,  \ |)
+                 ( | ( | `-uu ( |
+                  ||  ||    || ||
+                 /_( /_(   /_(/_(
+";
+        echo "\033[33m  ____  _   _ ____     ____ _____        __
+ |  _ \| | | |  _ \   / ___/ _ \ \      / /
+ | |_) | |_| | |_) | | |  | | | \ \ /\ / / 
+ |  __/|  _  |  __/  | |__| |_| |\ V  V /  
+ |_|   |_| |_|_|      \____\___/  \_/\_/   
+                                           {$this->_ret2} \033[37m";
         echo "\033[0;32mPHP Version : ".phpversion()."\n";
         echo "\033[0;32m CI Version  : ".CI_VERSION."\n\033[37m";
+        echo "\033[0;32m Architectur : ".$this->isHMVC()."\n\033[37m";
+
 
     }
 
@@ -59,18 +75,19 @@ class Kejora extends CI_Controller {
 
     public function index()
     {
-    	echo "{$this->_tab3}Welcome to JONES AREA\nThank you to : Allah SWT , Prophet Muhammad SAW, Avenir, And All My Friends\n";
+    	echo "{$this->_tab3}Welcome to PHP Cow\nThank you to : Allah SWT , Prophet Muhammad SAW, Avenir, And All My Friends\n type help to show available commands\n";
     }
 
 
     public function help()
     {
     	echo "==[ Available Commands ]== {$this->_ret}";
-    	echo "- kejora create:app{$this->_ret}";
-    	echo "- kejora create:controller{$this->_ret}";
-    	echo "- kejora create:model{$this->_ret}";
-    	echo "- kejora create:view{$this->_ret}";
-    	echo "- kejora create:crud{$this->_ret}";
+    	echo "- cow create:app{$this->_ret}";
+    	echo "- cow create:controller{$this->_ret}";
+    	echo "- cow create:model{$this->_ret}";
+    	echo "- cow create:view{$this->_ret}";
+    	echo "- cow create:crud{$this->_ret}";
+        echo "- cow create:hmvc{$this->_ret}";
     }
 
 	public function create($what = NULL, $name = NULL)
@@ -491,6 +508,21 @@ class Kejora extends CI_Controller {
     ////  begin local funcs pack  ///
     ////////////////////////////////
 
+    private function isHMVC()
+    {
+        $check = is_file(APPPATH."core/MY_Loader.php");
+        $res   = "";
+        
+        if ($check === FALSE) 
+        {
+            $res = "MVC";
+        }
+        else
+        {
+            $res = "HMVC";
+        }
+        return $res;
+    }
 
     private function _getMaster($type)
     {
@@ -628,5 +660,5 @@ class Kejora extends CI_Controller {
 
 }
 
-/* End of file kejora.php */
-/* Location: ./application/controllers/kejora.php */
+/* End of file Cow.php */
+/* Location: ./application/controllers/Cow.php */

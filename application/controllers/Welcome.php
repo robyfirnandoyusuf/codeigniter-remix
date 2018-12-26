@@ -7,15 +7,16 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 
-	  $this->load->model('usersmodel');
+	  	$this->load->model('usersmodel');
 	}
 
 	public function index() {
-  	$users = Usersmodel::all();
+	  	$users = Usersmodel::all();
 
-    $data['title']    = 'Codeigniter Remix';
-    $data['content']  = 'Codeigniter Remix Starter';
-    $data['users']    = $users;
-    $this->blade->view('welcome_message', $data);
+	    $data['title']    = 'Codeigniter Remix';
+	    $data['content']  = 'Codeigniter Remix Starter';
+	    $data['users']    = $users;
+	    
+	    $this->blade->view('welcome_message', $data);
 	}
 }
