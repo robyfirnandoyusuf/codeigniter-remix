@@ -59,7 +59,7 @@ php -S localhost:8000 index.php
 ```
 
 (Windows)<br>
-![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/SS%20windows%20-%20test.jpeg)
+> Screenshoot soon upload
 ```
 - go to `php` directory of your localhost > open terminal 
 - php 'YOUR FULLPATH TO PROJECT' index.php cow help
