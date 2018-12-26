@@ -52,17 +52,17 @@ php -S localhost:8000 index.php
 ### Using Console
 
 (Linux)<br>
-![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/Screenshot_2018-10-29_08-22-15.png)
+![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/Screenshot_2018-12-26_09-00-56.png)
 ```
 - go to root project > open terminal
-- php index.php kejora help
+- php index.php cow help
 ```
 
 (Windows)<br>
 ![Screensh0t](https://raw.githubusercontent.com/robyfirnandoyusuf/codeigniter-remix/master/SS%20windows%20-%20test.jpeg)
 ```
 - go to `php` directory of your localhost > open terminal 
-- php 'YOUR FULLPATH TO PROJECT' index.php kejora help
+- php 'YOUR FULLPATH TO PROJECT' index.php cow help
 ```
 
 ### Thanx to : 
